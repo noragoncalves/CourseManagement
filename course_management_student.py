@@ -43,23 +43,43 @@ DEFAULT_WEIGHTS = {
 
 
 def score_to_letter(percentage):
-    """
-    Convert a numeric percentage to a US university letter grade.
-
-    Standard scale:
-        A  >= 93   A- >= 90
-        B+ >= 87   B  >= 83   B- >= 80
-        C+ >= 77   C  >= 73   C- >= 70
-        D+ >= 67   D  >= 63   D- >= 60
-        F  <  60
-
-    Parameters:
-        percentage (float): Grade percentage (0–100).
-
-    Returns:
-        str: The corresponding letter grade string (e.g., "A", "B+", "C-").
-    """
     # TODO: Implement the letter grade scale above using if/elif/else
+    if percentage >= 93:
+        letter = "A"
+        return letter
+    elif (percentage >= 90) and (percentage < 93):
+        letter = "A-"
+        return letter
+    elif (percentage >= 87) and (percentage < 90):
+        letter = "B+"
+        return letter
+    elif (percentage >= 83) and (percentage < 87):
+        letter = "B"
+        return letter
+    elif (percentage >= 80) and (percentage < 83):
+        letter = "B-"
+        return letter
+    elif (percentage >= 77) and (percentage < 80):
+        letter = "C+"
+        return letter
+    elif (percentage >= 73) and (percentage < 77):
+        letter = "C"
+        return letter
+    elif (percentage >= 70) and (percentage < 73):
+        letter = "C-"
+        return letter
+    elif (percentage >= 67) and (percentage < 70):
+        letter = "D+"
+        return letter
+    elif (percentage >= 63) and (percentage < 67):
+        letter = "D"
+        return letter
+    elif (percentage >= 60) and (percentage < 63):
+        letter = "D-"
+        return letter
+    else:
+        letter = "F"
+        return letter
 
 
 
