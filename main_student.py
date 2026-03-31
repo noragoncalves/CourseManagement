@@ -16,23 +16,7 @@ def display_menu():
 
 
 def prompt_course_code(manager):
-    """
-    Display all current courses, then prompt the user to enter a course code.
-
-    Steps:
-        1. Print a header: "Current courses:"
-        2. Print each string returned by manager.display_courses(), indented with "  ".
-        3. Prompt: "Enter course code: "
-        4. Call manager.find_course_by_code() with the entered code.
-        5. If not found, print "Course not found." and return None.
-        6. Return the matching Course object.
-
-    Parameters:
-        manager (CourseManager): The active course manager.
-
-    Returns:
-        Course or None.
-    """
+    
     print("Current courses:")
     for course in manager.display_courses():
         print (" " + course) #concatenation because display_courses is a list of strings
@@ -46,8 +30,6 @@ def prompt_course_code(manager):
     
     return object1
                    
-    # TODO: Implement this helper following the steps above
-    pass
 
 
 def main():
@@ -112,7 +94,7 @@ def main():
                     item.update_score(score)
                     print("Score updated successfully.")
 
-            pass
+
 
         elif choice == "7":
             # TODO: Call prompt_course_code(manager) to get the course
@@ -127,7 +109,7 @@ def main():
             else:
                 for item in course.display_pending_items():
                     print(item)
-            pass
+
 
         elif choice == "8":
             # TODO: Call prompt_course_code(manager) to get the course
@@ -173,8 +155,7 @@ def main():
                             percentage = (earned/possible) * 100
                             print(f"{cat} ({course.weights[cat]}%): {earned}/{possible} = {percentage:.1f}%")
 
-                    
-            pass
+
 
         elif choice == "9":
             # TODO: Call prompt_course_code(manager) to get the course
@@ -192,7 +173,6 @@ def main():
             # TODO: Print "Exiting program." and break out of the loop
             print("Exiting program.")
             break
-            pass
 
         else:
             # TODO: Print "Invalid choice. Please try again."
