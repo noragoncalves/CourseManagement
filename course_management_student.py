@@ -24,51 +24,17 @@ class CourseItem:
         self.points_possible = points_possible
         self.points_earned = None
         self.completed = False
-        pass
+    
 
     def mark_complete(self):
-        """
-        Mark this item as completed.
-
-        Rules:
-            - Sets self.completed to True.
-            - Must not print anything.
-        """
-        # TODO: Implement this method
         self.completed = True
-        pass
+
 
     def update_score(self, score):
-        """
-        Record the score earned on this item.
-
-        Parameters:
-            score (float): The points earned to assign to self.points_earned.
-
-        Rules:
-            - Must not print anything.
-        """
-        # TODO: Implement this method
         self.points_earned = score
-        pass
+
 
     def display_info(self):
-        """
-        Return a formatted string describing this item.
-
-        Format:
-            "<category>: <title> | Due: <due_date> | Score: <score_text> | Status: <status>"
-
-        Where:
-            score_text is "Not graded" if points_earned is None,
-                        otherwise "<points_earned>/<points_possible>"
-            status is "Completed" if completed is True, otherwise "Incomplete"
-
-        Returns:
-            str: The formatted item info string.
-        """
-        # TODO: Build and return the formatted string described above
-        
         if self.completed == True:
             status = "Completed"
         else:
@@ -80,7 +46,7 @@ class CourseItem:
             score_text = (f"{self.points_earned}/{self.points_possible}")
 
         return str(f"{self.category}: {self.title} | Due: {self.due_date} | Score: {score_text} | Status: {status}")
-        pass
+
 
 
 # Default category weights — must sum to 100.
@@ -112,35 +78,18 @@ def score_to_letter(percentage):
         str: The corresponding letter grade string (e.g., "A", "B+", "C-").
     """
     # TODO: Implement the letter grade scale above using if/elif/else
-    pass
+
 
 
 class Course:
     def __init__(self, course_name, course_code, instructor_name):
-        """
-        Initialize a Course.
-
-        Parameters:
-            course_name (str): Full name of the course (e.g., "Intro to Python").
-            course_code (str): Course code (e.g., "ECE122").
-            instructor_name (str): Name of the instructor.
-
-        Instance variables to set:
-            self.course_name     -- full course name
-            self.course_code     -- course code
-            self.instructor_name -- instructor name
-            self.items           -- empty list (will hold CourseItem objects)
-            self.weights         -- a copy of DEFAULT_WEIGHTS (use dict() to copy)
-        """
-        # TODO: Set all instance variables described above
-
         self.course_name = course_name
         self.course_code = course_code
         self.instructor_name = instructor_name
         self.items = []
         self.weights = dict(DEFAULT_WEIGHTS)
 
-        pass
+
 
     # ── Weight management ─────────────────────────────────────────────────
 
@@ -160,7 +109,7 @@ class Course:
             - Must not print anything.
         """
         # TODO: Check that the values sum to ~100, then update self.weights
-        pass
+
 
     def display_weights(self):
         """
@@ -173,7 +122,7 @@ class Course:
             list[str]: One string per category in self.weights.
         """
         # TODO: Build and return the list of weight strings
-        pass
+
 
     # ── Item management ───────────────────────────────────────────────────
 
@@ -188,7 +137,7 @@ class Course:
             - Must not print anything.
         """
         # TODO: Append item to self.items
-        pass
+
 
     def remove_item(self, item_title):
         """
@@ -206,24 +155,9 @@ class Course:
         """
         # TODO: Loop through self.items, find the match, remove it, return True
         # If not found, return False
-        pass
+
 
     def find_item(self, item_title):
-        """
-        Find and return a CourseItem by title (case-insensitive).
-
-        Parameters:
-            item_title (str): Title to search for.
-
-        Returns:
-            CourseItem: The matching item, or None if not found.
-
-        Rules:
-            - Comparison must be case-insensitive.
-            - Must not print anything.
-        """
-        # TODO: Loop through self.items and return the matching item or None
-
         item_title = item_title.lower()
 
         for i in self.items:
@@ -234,20 +168,9 @@ class Course:
         else:
             return None
 
-        pass
+
 
     def display_items(self):
-        """
-        Return a list of formatted strings for all items in this course.
-
-        Returns:
-            list[str]: One string per item from display_info(),
-                       or ["No items found."] if the course has no items.
-        """
-        # TODO: Implement this method
-
-        list1=[]
-
         if not self.items:
             list1=["No items found."]
 
@@ -258,18 +181,8 @@ class Course:
         
         return list1
 
-        pass
 
     def display_pending_items(self):
-        """
-        Return a list of formatted strings for all incomplete items.
-
-        Returns:
-            list[str]: Strings from display_info() for items where completed is False,
-                       or ["No pending items."] if all items are complete.
-        """
-        # TODO: Filter items where completed == False and return their display_info() strings
-        
         list2=[]
 
         for i in self.items:
@@ -279,17 +192,9 @@ class Course:
         
         if not list2:
             list2=["No pending items."]
-    
-        #Am I allowed to use all function if not 
-        #Also what to do about if there are no objects so self.items is zero (in my current it returns [no pending items])
-        #checker=[]
-        #for i in self.items:
-            #checker.append(i.completed)
-        #if all(checker):
-            #list2 = ["No pending items."] 
 
         return list2
-        pass
+
 
     # ── Grade calculation ─────────────────────────────────────────────────
 
@@ -325,15 +230,9 @@ class Course:
 
 class CourseManager:
     def __init__(self):
-        """
-        Initialize the CourseManager with an empty list of courses.
-
-        Instance variables to set:
-            self.courses -- empty list (will hold Course objects)
-        """
         self.courses=[]
-        # TODO: Set self.courses to an empty list
-        pass
+    
+
 
     def add_course(self, course):
         """
@@ -349,20 +248,6 @@ class CourseManager:
         pass
 
     def find_course(self, course_name):
-        """
-        Find and return a Course by name (case-insensitive).
-
-        Parameters:
-            course_name (str): The course name to search for.
-
-        Returns:
-            Course: The matching Course object, or None if not found.
-
-        Rules:
-            - Comparison must be case-insensitive.
-            - Must not print anything.
-        """
-        # TODO: Loop through self.courses and return the matching course or None
         course_search_cleaned = course_name.lower()
 
         for i in self.courses:
@@ -371,24 +256,8 @@ class CourseManager:
                 return i
     
         return None
-        pass
 
     def find_course_by_code(self, course_code):
-        """
-        Find and return a Course by course code (case-insensitive).
-
-        Parameters:
-            course_code (str): The course code to search for (e.g., "ECE122").
-
-        Returns:
-            Course: The matching Course object, or None if not found.
-
-        Rules:
-            - Comparison must be case-insensitive.
-            - Must not print anything.
-        """
-        # TODO: Loop through self.courses and match on course_code (case-insensitive)
-
         course_code_cleaned = course_code.lower()
         for i in self.courses:
             cleaned = i.course_code.lower()
@@ -397,19 +266,8 @@ class CourseManager:
 
         return None
 
-        pass
 
     def display_courses(self):
-        """
-        Return a list of formatted strings for all courses.
-
-        Format for each entry:
-            "<course_code>: <course_name> (<instructor_name>)"
-
-        Returns:
-            list[str]: One string per course,
-                       or ["No courses available."] if no courses have been added.
-        """
         list2 = []
         
         if not self.courses:
@@ -424,6 +282,3 @@ class CourseManager:
                 list2.append(course_info)
         
         return list2
-
-        # TODO: Implement this method
-        pass
