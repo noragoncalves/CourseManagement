@@ -73,13 +73,7 @@ def main():
             pass
 
         elif choice == "6":
-            # TODO: Call prompt_course_code(manager) to get the course
-            # If None, use 'continue'
-            # Prompt for item title, call course.find_item()
-            # If None, print "Item not found."
-            # Otherwise, prompt for score (float), call item.update_score()
-            # Print "Score updated successfully."
-            
+
             course = prompt_course_code(manager)
             
             if course == None:
@@ -97,9 +91,6 @@ def main():
 
 
         elif choice == "7":
-            # TODO: Call prompt_course_code(manager) to get the course
-            # If None, use 'continue'
-            # Print each string returned by course.display_pending_items()
             
             course = prompt_course_code(manager)
 
@@ -112,15 +103,6 @@ def main():
 
 
         elif choice == "8":
-            # TODO: Call prompt_course_code(manager) to get the course
-            # If None, use 'continue'
-            # Call course.calculate_grade()
-            # If None, print "No graded items yet."
-            # Otherwise:
-            #   Print "Course Grade for <course_code>: <course_name>"
-            #   Print "  Weighted average : <percentage:.2f>%"
-            #   Print "  Letter grade     : <letter>"
-            #   Print a per-category breakdown (see project spec for format)
 
             course = prompt_course_code(manager)
 
@@ -170,12 +152,11 @@ def main():
             pass
 
         elif choice == "10":
-            # TODO: Print "Exiting program." and break out of the loop
             print("Exiting program.")
             break
 
         else:
-            # TODO: Print "Invalid choice. Please try again."
+            print("Invalid choice. Please try again.")
             pass
 
 
