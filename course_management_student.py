@@ -1,23 +1,5 @@
 class CourseItem:
     def __init__(self, title, category, due_date, points_possible):
-        """
-        Initialize a CourseItem with the given attributes.
-
-        Parameters:
-            title (str): The name of the item (e.g., "HW1", "Quiz 1").
-            category (str): The type of item (e.g., "Homework", "Quiz", "Exam", "Lecture Note").
-            due_date (str): The due date as a string (e.g., "2026-03-20").
-            points_possible (float): The maximum points for this item.
-
-        Instance variables to set:
-            self.title          -- the item title
-            self.category       -- the item category
-            self.due_date       -- the due date string
-            self.points_possible -- max points for this item
-            self.points_earned  -- starts as None (not yet graded)
-            self.completed      -- starts as False
-        """
-        # TODO: Set all instance variables described above
         self.title = title
         self.category = category
         self.due_date = due_date
@@ -163,8 +145,7 @@ class Course:
         for i in self.items:
             check = i.title.lower()
             if check == item_title:
-                return i
-            
+                return i     
         else:
             return None
 
