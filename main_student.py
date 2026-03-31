@@ -140,16 +140,31 @@ def main():
 
 
         elif choice == "9":
-            # TODO: Call prompt_course_code(manager) to get the course
-            # If None, use 'continue'
-            # Print "Current weights for <course_code>:"
-            # Print each string from course.display_weights()
-            # Print instructions, then prompt the user for a new weight per category
-            #   (pressing Enter keeps the current value)
-            # Validate that the new weights sum to ~100
-            # If valid, call course.set_weights() and print "Weights updated successfully."
-            # If invalid, print "Weights must sum to 100 (got <total:.2f>). No changes made."
-            pass
+            course = prompt_course_code(manager)
+
+            if course is None:
+                continue
+            
+            else: 
+                print(f"Current weights for {course.course_code}:")
+                for i in course.display_weights():
+                    print(i)
+
+                print("Enter new weights (pressing Enter keeps the current value)")
+                new_weight = {}
+                for cat in course.weights:
+                    value = course.weights[cat]
+                    user_weights = (input(f"{cat} (current: {value}%): ")) 
+                    if user_weights == "":
+                        new_weight[cat]=value
+                    else:
+                        new_weight[cat]= float(user_weights)
+                total = sum(new_weight.values())
+                if (100.00 - total) == 0: # would this need tolerance?
+                    course.set_weights(new_weight)
+                    print("Weight updated sucessfully")
+                else:
+                    print(f"Weights must sum to 100 (got {total:.2f}). No changes made.")
 
         elif choice == "10":
             print("Exiting program.")
