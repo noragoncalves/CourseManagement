@@ -123,10 +123,7 @@ class Course:
         for category, weight in self.weights.items():
             list.append(f"{category}: {weight}%")
 
-        Returns:
-            list[str]: One string per category in self.weights.
-        """
-        # TODO: Build and return the list of weight strings
+            return list
 
 
     # ── Item management ───────────────────────────────────────────────────
