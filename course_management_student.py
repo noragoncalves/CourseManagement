@@ -129,16 +129,7 @@ class Course:
     # ── Item management ───────────────────────────────────────────────────
 
     def add_item(self, item):
-        """
-        Add a CourseItem to this course's items list.
-
-        Parameters:
-            item (CourseItem): The item to add.
-
-        Rules:
-            - Must not print anything.
-        """
-        # TODO: Append item to self.items
+        self.items.append(item)
 
 
     def remove_item(self, item_title):
