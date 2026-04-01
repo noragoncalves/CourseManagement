@@ -109,21 +109,12 @@ class Course:
     # ── Weight management ─────────────────────────────────────────────────
 
     def set_weights(self, new_weights):
-        """
-        Replace this course's category weights with new_weights.
-
-        Parameters:
-            new_weights (dict): Mapping of category name -> percentage weight.
-                                Values must sum to 100 (within 0.01 tolerance).
-
-        Returns:
-            bool: True if weights were successfully set,
-                  False if they do not sum to ~100.
-
-        Rules:
-            - Must not print anything.
-        """
-        # TODO: Check that the values sum to ~100, then update self.weights
+        total = sum(new_weights.values())
+        if abs(total - 100) <= 0.01:
+            self.weights = new_weights
+            return True
+        else:
+            return False
 
 
     def display_weights(self):
