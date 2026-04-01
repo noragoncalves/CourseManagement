@@ -120,8 +120,8 @@ class Course:
     def display_weights(self):
         list = []
 
-        Format for each entry:
-            "  <category>: <weight>%"
+        for category, weight in self.weights.items():
+            list.append(f"{category}: {weight}%")
 
         Returns:
             list[str]: One string per category in self.weights.
