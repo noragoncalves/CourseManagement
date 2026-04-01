@@ -118,8 +118,7 @@ class Course:
 
 
     def display_weights(self):
-        """
-        Return a list of formatted strings showing the current category weights.
+        list = []
 
         Format for each entry:
             "  <category>: <weight>%"
