@@ -45,37 +45,51 @@ def main():
         choice = input("Enter your choice: ").strip()
 
         if choice == "1":
-            # TODO: Prompt for course name, course code, and instructor name
-            # Create a Course object and add it to manager via manager.add_course()
-            # Print "Course added successfully."
-            pass
+            name = input("Enter course name: ")
+            code = input("Enter course code: ")
+            instructor = input("Enter instructor name: ")
+            Course1 = Course(name, code, instructor)
+            manager.add_course(Course1)
+            print("Course added successfully.")
 
         elif choice == "2":
-            # TODO: Print each string returned by manager.display_courses()
-            pass
+            for item in manager.display_courses():
+                print(item)
 
         elif choice == "3":
-            # TODO: Call prompt_course_code(manager) to get the course
-            # If None, use 'continue' to go back to the menu
-            # Otherwise, prompt for item title, category, due date, and points possible
-            # Create a CourseItem and add it to the course via course.add_item()
-            # Print "Item added successfully."
-            pass
-
+            
+            course = prompt_course_code(manager)
+            if course is None:
+                continue
+            else:
+                title = input("Enter item title: ")
+                category = input("Enter category (Homework/Quiz/Exam/Lecture Note/Project): ")
+                due_date = input("Enter due date: ")
+                points_possible = float(input("Enter points possible: "))
+                CourseItem3 = CourseItem(title, category, due_date, points_possible)
+                course.add_item(CourseItem3)
+                print("Item added successfully.")
+    
         elif choice == "4":
-            # TODO: Call prompt_course_code(manager) to get the course
-            # If None, use 'continue'
-            # Otherwise, print each string returned by course.display_items()
-            pass
+            course = prompt_course_code(manager)
+            if course is None:
+                continue
+            else:
+                for item in course.display_items():
+                    print(item)
 
         elif choice == "5":
-            # TODO: Call prompt_course_code(manager) to get the course
-            # If None, use 'continue'
-            # Prompt for item title, call course.find_item()
-            # If None, print "Item not found."
-            # Otherwise, call item.mark_complete() and print "Item marked as completed."
-
-            pass
+            course = prompt_course_code(manager)
+            if course is None:
+                continue
+            else:
+                item_title = input("Enter item title: ")
+                search = course.find_item(item_title)
+                if search is None:
+                    print("Item not found.")
+                else:
+                    search.mark_complete()
+                    print("Item marked as completed.")
 
         elif choice == "6":
 
