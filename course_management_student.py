@@ -1,3 +1,9 @@
+#Student 1:
+#Spire ID:
+#Student 2: Maryam Ahsan Syeda
+#Spire ID: 35238104
+
+
 class CourseItem:
     def __init__(self, title, category, due_date, points_possible):
         self.title = title
