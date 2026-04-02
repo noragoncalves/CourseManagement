@@ -11,19 +11,6 @@ class CourseItem:
     def mark_complete(self):
         self.completed = True
 
-    def score_to_percentage(self, percentage):
-        if percentage < 65:
-            status = "F"
-        elif 65 <= percentage < 70:
-            status = "D"
-        elif 70 <= percentage < 80:
-            status = "C"
-        elif 80 <= percentage < 90:
-            status = "B"
-        else:
-            status = "A"
-
-        return status
 
     def update_score(self, score):
         self.points_earned = score
