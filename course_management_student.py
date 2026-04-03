@@ -102,21 +102,13 @@ class Course:
     # ── Weight management ─────────────────────────────────────────────────
 
     def set_weights(self, new_weights):
-        """
-        Replace this course's category weights with new_weights.
-
-        Parameters:
-            new_weights (dict): Mapping of category name -> percentage weight.
-                                Values must sum to 100 (within 0.01 tolerance).
-
-        Returns:
-            bool: True if weights were successfully set,
-                  False if they do not sum to ~100.
-
-        Rules:
-            - Must not print anything.
-        """
-        # TODO: Check that the values sum to ~100, then update self.weights
+        
+        sum_weights = sum(new_weights.values())
+        if abs(sum_weights - 100.0) <= .01:
+            self.weights = new_weights
+            return True
+        
+        return False
 
 
     def display_weights(self):
@@ -206,33 +198,32 @@ class Course:
     # ── Grade calculation ─────────────────────────────────────────────────
 
     def calculate_grade(self):
-        """
-        Calculate the weighted overall grade for this course.
-
-        Algorithm:
-            For each category in self.weights that has weight > 0:
-              1. Collect all graded items in that category
-                 (items where points_earned is not None).
-              2. If none exist, skip this category entirely.
-              3. Compute category_pct = sum(points_earned) / sum(points_possible) * 100.
-              4. Add category_pct * weight to a running weighted_sum.
-              5. Add weight to a running active_weight.
-            Final percentage = weighted_sum / active_weight.
-
-        Returns:
-            tuple(float, str) or None:
-                A tuple of (percentage rounded to 2 decimal places, letter grade string)
-                if at least one item has been graded.
-                None if no items have been graded yet.
-
-        Rules:
-            - Only items with points_earned != None count as graded.
-            - Categories with no graded items are excluded from the calculation.
-            - Use score_to_letter() to convert the final percentage to a letter grade.
-            - Must not print anything.
-        """
-        # TODO: Implement the weighted grade algorithm described above
-        pass
+        
+        weighted_sum = 0.0
+        active_weight = 0.0
+        for category, weights in self.weights.items():
+            if weights > 0:
+                graded_items = []
+                points_possible_category = []
+                for i in self.items:
+                    if (i.category == category):
+                        if i.points_earned != None:
+                            graded_items.append(i.points_earned)
+                            points_possible_category.append(i.points_possible)
+                        if i.points_earned == None:
+                            continue
+                if graded_items == []:
+                    continue
+                else:
+                    category_pct = sum(graded_items)/sum(points_possible_category) * 100
+                    weighted_sum += category_pct * weights
+                    active_weight += weights
+        
+        if active_weight == 0:
+            return None
+        
+        final_pct = weighted_sum/active_weight
+        return (round(final_pct, 2), score_to_letter(final_pct))
 
 
 class CourseManager:
