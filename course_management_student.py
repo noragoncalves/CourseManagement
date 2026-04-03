@@ -1,3 +1,9 @@
+#STUDENT 1: Nora Goncalves
+#SPIRE:
+
+#STUDENT 2: Maryam Ahsan Syeda
+#SPIRE: 35238104
+
 class CourseItem:
     def __init__(self, title, category, due_date, points_possible):
         self.title = title
@@ -105,12 +111,13 @@ class Course:
 
 
     def display_weights(self):
-        result = []
-
-        for category, weight in Course():
-            result.append(f"{category}: {weight}%")
-
-            return result
+        category_weight_list = []
+        
+        for cat, weight in self.weights.items():
+            entry = str(f"  {cat}: {weight}%")
+            category_weight_list.append(entry)
+        
+        return category_weight_list
 
 
     # ── Item management ───────────────────────────────────────────────────
@@ -120,11 +127,16 @@ class Course:
 
 
     def remove_item(self, item_title):
-        for item in self.items:
-            if item.title.lower() == item_title.lower():
+        
+        item_title = item_title.lower()
+
+        for i in self.items:
+            check = i.title.lower()
+            if check == item_title:
+                self.items.remove(i)
                 return True
-            else:
-                return False
+        
+        return False
 
     #loop through self.items, find the match, remove it, return True
 
@@ -142,6 +154,7 @@ class Course:
 
 
     def display_items(self):
+        list1=[]
         if not self.items:
             list1=["No items found."]
 
@@ -179,11 +192,11 @@ class Course:
             graded_items = []
 
             for item in self.items:
-                if item.category == category and items.points_earned != None:
+                if (item.category == category) and (item.points_earned != None):
                     graded_items.append(item)
                     points_earned += item.points_earned
                     points_possible += item.points_possible
-            if graded_items != None:
+            if graded_items == []:
                 continue
 
             if points_possible > 0:
