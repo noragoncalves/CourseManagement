@@ -3,7 +3,7 @@
 #Student 2: Maryam Ahsan Syeda
 #Spire ID: 35238104
 
-from course_management import CourseItem, Course, CourseManager, DEFAULT_WEIGHTS
+from course_management_student import CourseItem, Course, CourseManager, DEFAULT_WEIGHTS
 
 
 def display_menu():
