@@ -170,6 +170,44 @@ class Course:
     # ── Grade calculation ─────────────────────────────────────────────────
 
     def calculate_grade(self):
+        weighted_sum = 0
+        active_weight = 0
+
+        for category, weight in self.weights.items():
+            points_earned = 0
+            points_possible = 0
+            graded_items = []
+
+            for item in self.items:
+                if item.category == category and items.points_earned != None:
+                    graded_items.append(item)
+                    points_earned += item.points_earned
+                    points_possible += item.points_possible
+            if graded_items != None:
+                continue
+
+            if points_possible > 0:
+                category_pct = (points_earned / points_possible) * 100
+            else:
+                category_pct = 0
+            
+            weighted_sum += category_pct * weight
+            active_weight += weight
+
+        if active_weight == 0:
+            return None
+        else:
+            final_percentage = round(weighted_sum / active_weight, 2)
+            letter_grade = score_to_letter(final_percentage)
+            return final_percentage, letter_grade
+pass
+
+#calculating weighted grade
+#weights initialized at 0, graded_items list created, said graded_items list checked for null (None) points
+#proceeds to calculate new weighted_sum, active_weight by operation in category_pct. If weight is 0, program continues
+#and calculates final_percentage and letter_grade
+
+
         """
         Calculate the weighted overall grade for this course.
 
