@@ -49,7 +49,7 @@ DEFAULT_WEIGHTS = {
 
 
 def score_to_letter(percentage):
-    # TODO: Implement the letter grade scale above using if/elif/else
+
     if percentage >= 93:
         letter = "A"
         return letter
@@ -265,7 +265,9 @@ class CourseManager:
         return None
 
     def find_course_by_code(self, course_code):
+        
         course_code_cleaned = course_code.lower()
+        
         for i in self.courses:
             cleaned = i.course_code.lower()
             if cleaned == course_code_cleaned:
@@ -275,6 +277,7 @@ class CourseManager:
 
 
     def display_courses(self):
+        
         list2 = []
         
         if not self.courses:
