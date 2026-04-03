@@ -128,16 +128,6 @@ class Course:
 
     #loop through self.items, find the match, remove it, return True
 
-        Returns:
-            bool: True if the item was found and removed, False otherwise.
-
-        Rules:
-            - Comparison must be case-insensitive.
-            - Must not print anything.
-        """
-        # TODO: Loop through self.items, find the match, remove it, return True
-        # If not found, return False
-
 
     def find_item(self, item_title):
         item_title = item_title.lower()
