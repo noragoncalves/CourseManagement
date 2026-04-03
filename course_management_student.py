@@ -177,6 +177,9 @@ class Course:
 
 
     def display_items(self):
+        
+        list1=[]
+        
         if not self.items:
             list1=["No items found."]
 
