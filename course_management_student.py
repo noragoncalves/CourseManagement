@@ -120,11 +120,13 @@ class Course:
 
 
     def remove_item(self, item_title):
-        """
-        Remove an item from this course by title (case-insensitive).
+        for item in self.items:
+            if item.title.lower() == item_title.lower():
+                return True
+            else:
+                return False
 
-        Parameters:
-            item_title (str): Title of the item to remove.
+    #loop through self.items, find the match, remove it, return True
 
         Returns:
             bool: True if the item was found and removed, False otherwise.
