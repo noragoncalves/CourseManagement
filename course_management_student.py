@@ -110,7 +110,7 @@ class Course:
         for category, weight in Course():
             result.append(f"{category}: {weight}%")
 
-            return list
+            return result
 
 
     # ── Item management ───────────────────────────────────────────────────
