@@ -200,41 +200,11 @@ class Course:
             final_percentage = round(weighted_sum / active_weight, 2)
             letter_grade = score_to_letter(final_percentage)
             return final_percentage, letter_grade
-pass
 
 #calculating weighted grade
 #weights initialized at 0, graded_items list created, said graded_items list checked for null (None) points
 #proceeds to calculate new weighted_sum, active_weight by operation in category_pct. If weight is 0, program continues
 #and calculates final_percentage and letter_grade
-
-
-        """
-        Calculate the weighted overall grade for this course.
-
-        Algorithm:
-            For each category in self.weights that has weight > 0:
-              1. Collect all graded items in that category
-                 (items where points_earned is not None).
-              2. If none exist, skip this category entirely.
-              3. Compute category_pct = sum(points_earned) / sum(points_possible) * 100.
-              4. Add category_pct * weight to a running weighted_sum.
-              5. Add weight to a running active_weight.
-            Final percentage = weighted_sum / active_weight.
-
-        Returns:
-            tuple(float, str) or None:
-                A tuple of (percentage rounded to 2 decimal places, letter grade string)
-                if at least one item has been graded.
-                None if no items have been graded yet.
-
-        Rules:
-            - Only items with points_earned != None count as graded.
-            - Categories with no graded items are excluded from the calculation.
-            - Use score_to_letter() to convert the final percentage to a letter grade.
-            - Must not print anything.
-        """
-        # TODO: Implement the weighted grade algorithm described above
-        pass
 
 
 class CourseManager:
@@ -244,17 +214,7 @@ class CourseManager:
 
 
     def add_course(self, course):
-        """
-        Add a Course object to the manager's list.
-
-        Parameters:
-            course (Course): The Course object to add.
-
-        Rules:
-            - Must not print anything.
-        """
-        # TODO: Append course to self.courses
-        pass
+        self.courses.append(course)
 
     def find_course(self, course_name):
         course_search_cleaned = course_name.lower()
