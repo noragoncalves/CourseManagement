@@ -135,7 +135,7 @@ def main():
                     print(f"Course Grade for {course.course_code}: {course.course_name}")
                     print(f"  Weighted average : {grade[0]:.2f}%") #does this work for a tuple?
                     print(f"  Letter grade     : {grade[1]}")
-                    print("  Category Breakdown:")
+                    print("  Category breakdown:")
                     
                     for cat in course.weights:
                         graded_items = [] 
