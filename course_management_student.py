@@ -105,7 +105,7 @@ class Course:
 
 
     def display_weights(self):
-        list = []
+        result = []
 
         for category, weight in self.weights.items():
             list.append(f"{category}: {weight}%")
