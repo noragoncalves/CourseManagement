@@ -1,5 +1,5 @@
-#Student 1:
-#Spire ID:
+#Student 1:Nora Goncalves
+#Spire ID: 35378248
 #Student 2: Maryam Ahsan Syeda
 #Spire ID: 35238104
 
